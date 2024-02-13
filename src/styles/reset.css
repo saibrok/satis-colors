@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

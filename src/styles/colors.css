@@ -1,0 +1,13 @@
+:root {
+  --bg-color-primary: #222222;
+
+  --bg-color-accent: #444444;
+  --bg-color-neutral: #303030;
+
+  --text-color-primary: #ffffff;
+  --text-color-accent: #f39c12;
+
+  --text-size-primary: 16px;
+  --text-size-increased: 14px;
+  --text-size-decreased: 18px;
+}
