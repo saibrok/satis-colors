@@ -39,7 +39,7 @@ function show(x, y, color) {
   position: fixed;
   background-color: var(--bg-color-accent);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   z-index: 1;
   transform: translateX(-50%);
   pointer-events: none;

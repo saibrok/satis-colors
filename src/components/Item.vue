@@ -1,79 +1,3 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import copyToClipboard from 'copy-to-clipboard';
-import ColorThief from '../../node_modules/colorthief/dist/color-thief.mjs';
-
-import Tooltip from './Tooltip.vue';
-
-const props = defineProps({
-  item: Object,
-});
-
-const imageEl = ref();
-const tooltip = ref();
-
-const dominantColor = ref('');
-const palette = ref([]);
-
-function decToHex(dec) {
-  let hex = dec.toString(16);
-
-  return hex.length < 2 ? (hex = '0' + hex) : hex;
-}
-
-function getPercentageOfColorComponent(component) {
-  return (parseInt(component, 16) + 1) / 256;
-}
-
-function getContrast(color) {
-  const red = color.slice(1, 3);
-  const green = color.slice(3, 5);
-  const blue = color.slice(5, 7);
-
-  const contrast =
-    getPercentageOfColorComponent(red) + getPercentageOfColorComponent(green) + getPercentageOfColorComponent(blue);
-
-  return contrast > 1.4;
-}
-
-function onClick(event, color) {
-  tooltip.value.show(event.clientX, event.clientY, color);
-
-  copyToClipboard(color.slice(1));
-}
-
-function setColors(img) {
-  const colorThief = new ColorThief();
-  const dominantColorArr = colorThief.getColor(img);
-
-  dominantColor.value = dominantColorArr.reduce((acc, el) => {
-    return acc + decToHex(el).toUpperCase();
-  }, '#');
-
-  const paletteArr = colorThief.getPalette(img, 12, 10);
-
-  palette.value = paletteArr.map((color) => {
-    return color.reduce((acc, el) => {
-      return acc + decToHex(el).toUpperCase();
-    }, '#');
-  });
-
-  palette.value.sort();
-}
-
-onMounted(() => {
-  const img = imageEl.value;
-
-  if (img.complete) {
-    setColors(img);
-  } else {
-    img.addEventListener('load', function () {
-      setColors(img);
-    });
-  }
-});
-</script>
-
 <template>
   <div class="item">
     <div class="content">
@@ -112,6 +36,88 @@ onMounted(() => {
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted } from 'vue';
+import copyToClipboard from 'copy-to-clipboard';
+import ColorThief from '../../node_modules/colorthief/dist/color-thief.mjs';
+
+import Tooltip from './Tooltip.vue';
+
+const props = defineProps({
+  item: Object,
+  excludeSharp: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const imageEl = ref();
+const tooltip = ref();
+
+const dominantColor = ref('');
+const palette = ref([]);
+
+function decToHex(dec) {
+  let hex = dec.toString(16);
+
+  return hex.length < 2 ? (hex = '0' + hex) : hex;
+}
+
+function getPercentageOfColorComponent(component) {
+  return (parseInt(component, 16) + 1) / 256;
+}
+
+function getContrast(color) {
+  const red = color.slice(1, 3);
+  const green = color.slice(3, 5);
+  const blue = color.slice(5, 7);
+
+  const contrast =
+    getPercentageOfColorComponent(red) + getPercentageOfColorComponent(green) + getPercentageOfColorComponent(blue);
+
+  return contrast > 1.4;
+}
+
+function onClick(event, color) {
+  const slicedColor = color.slice(props.excludeSharp ? 1 : 0);
+
+  tooltip.value.show(event.clientX, event.clientY, slicedColor);
+
+  copyToClipboard(slicedColor);
+}
+
+function setColors(img) {
+  const colorThief = new ColorThief();
+  const dominantColorArr = colorThief.getColor(img);
+
+  dominantColor.value = dominantColorArr.reduce((acc, el) => {
+    return acc + decToHex(el).toUpperCase();
+  }, '#');
+
+  const paletteArr = colorThief.getPalette(img, 12, 10);
+
+  palette.value = paletteArr.map((color) => {
+    return color.reduce((acc, el) => {
+      return acc + decToHex(el).toUpperCase();
+    }, '#');
+  });
+
+  palette.value.sort();
+}
+
+onMounted(() => {
+  const img = imageEl.value;
+
+  if (img.complete) {
+    setColors(img);
+  } else {
+    img.addEventListener('load', function () {
+      setColors(img);
+    });
+  }
+});
+</script>
+
 <style scoped>
 .item {
   position: relative;
@@ -119,7 +125,7 @@ onMounted(() => {
   display: grid;
   gap: 10px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 16px;
   height: 180px;
   min-width: 400px;
   flex-grow: 1;
@@ -129,7 +135,6 @@ onMounted(() => {
   display: grid;
   grid-template-columns: 128px 1fr 2fr;
   column-gap: 10px;
-  height: 120px;
 }
 
 @media (max-width: 500px) {
@@ -170,7 +175,7 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
-  font-size: 10px;
+  font-size: var(--text-size-decreased);
 }
 
 .color {
@@ -180,7 +185,7 @@ onMounted(() => {
   align-items: center;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .color:hover {

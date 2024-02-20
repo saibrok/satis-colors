@@ -153,6 +153,34 @@ export default [
     groupName: 'Пришельцы',
     items: [
       {
+        name: 'Берилловый орех',
+        image: '/images/beryl-nut.png',
+      },
+      {
+        name: 'Палеоягода',
+        image: '/images/paleberry.png',
+      },
+      {
+        name: 'Шпиковый мухомор',
+        image: '/images/bacon-agaric.png',
+      },
+      {
+        name: 'Останки кабана',
+        image: '/images/hog-remains.png',
+      },
+      {
+        name: 'Останки плевателя',
+        image: '/images/plasma-spitter-remains.png',
+      },
+      {
+        name: 'Останки жалоносца',
+        image: '/images/stinger-remains.png',
+      },
+      {
+        name: 'Останки гнезда',
+        image: '/images/hatcher-remains.png',
+      },
+      {
         name: 'Инопланетный протеин',
         image: '/images/alien-protein.png',
       },
@@ -171,10 +199,6 @@ export default [
       {
         name: 'Фиолетовый энергослизень',
         image: '/images/purple-power-slug.png',
-      },
-      {
-        name: 'Энергомодуль',
-        image: '/images/power-shard.png',
       },
     ],
   },
@@ -463,6 +487,14 @@ export default [
         name: 'Купон FICSIT',
         image: '/images/ficsit-coupon.png',
       },
+      {
+        name: 'Энергомодуль',
+        image: '/images/power-shard.png',
+      },
+      {
+        name: 'Жёсткий диск',
+        image: '/images/hard-drive.png',
+      },
     ],
   },
   {
@@ -589,6 +621,98 @@ export default [
       {
         name: 'Ядерная паста',
         image: '/images/nuclear-pasta.png',
+      },
+    ],
+  },
+  {
+    groupName: 'Тело',
+    items: [
+      {
+        name: 'Экзоскелет',
+        image: '/images/blade-runners.png',
+      },
+      {
+        name: 'Парашют',
+        image: '/images/parachute.png',
+      },
+      {
+        name: 'Реактивный ранец',
+        image: '/images/jetpack.png',
+      },
+      {
+        name: 'Ранец для парения',
+        image: '/images/hover-pack.png',
+      },
+      {
+        name: 'Респиратор',
+        image: '/images/gas-mask.png',
+      },
+      {
+        name: 'Защитный костюм',
+        image: '/images/hazmat-suit.png',
+      },
+    ],
+  },
+  {
+    groupName: 'Руки',
+    items: [
+      {
+        name: 'Переносной бур',
+        image: '/images/portable-miner.png',
+      },
+      {
+        name: 'Зиплайн',
+        image: '/images/zipline.png',
+      },
+      {
+        name: 'Цепная пила',
+        image: '/images/chainsaw.png',
+      },
+      {
+        name: 'Сканер объектов',
+        image: '/images/object-scanner.png',
+      },
+      {
+        name: 'Медицинский ингалятор',
+        image: '/images/medicinal-inhaler.png',
+      },
+    ],
+  },
+  {
+    groupName: 'Оружие',
+    items: [
+      {
+        name: 'Ксеношокер',
+        image: '/images/xeno-zapper.png',
+      },
+      {
+        name: 'Ксенодубинка',
+        image: '/images/xeno-basher.png',
+      },
+      {
+        name: 'Арматурный пистолет',
+        image: '/images/rebar-gun.png',
+      },
+      {
+        name: 'Винтовка',
+        image: '/images/rifle.png',
+      },
+      {
+        name: 'Детонатор нобелиска',
+        image: '/images/nobelisk-detonator.png',
+      },
+    ],
+  },
+  {
+    groupName: 'Особое',
+    items: [
+      {
+        name: 'Петлевик',
+        image: '/images/somers-loop.png',
+      },
+      {
+        name: 'Сфера Мерсера',
+        image: '/images/mercer-sphere.png',
       },
     ],
   },

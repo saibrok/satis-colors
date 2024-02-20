@@ -1,10 +1,53 @@
+<template>
+  <header class="header">
+    <div class="search">
+      <label>
+        <span>Поиск </span>
+        <input
+          type="text"
+          v-model="filter"
+          class="filter-input"
+        />
+      </label>
+    </div>
+    <div class="sharp">
+      <label>
+        <span>Исключить # </span>
+        <input
+          type="checkbox"
+          v-model="excludeSharp"
+          class="sharp-checkbox"
+        />
+      </label>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="group-list">
+      <div
+        v-for="group in filteredItems"
+        :key="group.groupName"
+        class="group"
+      >
+        <template v-if="group.items.length > 0">
+          <Group
+            :group="group"
+            :excludeSharp="excludeSharp"
+          ></Group>
+        </template>
+      </div>
+    </div>
+  </main>
+</template>
+
 <script setup>
 import { ref, computed } from 'vue';
-import Item from './components/Item.vue';
+import Group from './components/Group.vue';
 
 import ITEMS from './assets/items.data.js';
 
 const filter = ref('');
+const excludeSharp = ref(true);
 
 const filteredItems = computed(() => {
   return ITEMS.map((item) => ({
@@ -14,45 +57,17 @@ const filteredItems = computed(() => {
 });
 </script>
 
-<template>
-  <main class="main">
-    <div class="search">
-      <label>
-        Поиск:
-        <input
-          type="text"
-          v-model="filter"
-          class="filter-input"
-        />
-      </label>
-    </div>
-
-    <div class="group-list">
-      <div
-        v-for="groups in filteredItems"
-        :key="groups.groupName"
-        class="group"
-      >
-        <template v-if="groups.items.length > 0">
-          <div class="group-wrapper">
-            <div class="group-name">{{ groups.groupName }}</div>
-            <div class="items">
-              <Item
-                v-for="item in groups.items"
-                :key="item.name"
-                :item="item"
-              />
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-  </main>
-</template>
-
 <style scoped>
 .main {
   padding: 10px;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
 }
 
 .search {
@@ -61,51 +76,15 @@ const filteredItems = computed(() => {
 }
 
 .filter-input {
-  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  text-align: center;
 }
 
 .group {
   display: grid;
   gap: 10px;
-}
-
-.group-wrapper {
-  margin-bottom: 20px;
-}
-
-.group-name {
-  background: var(--bg-color-accent);
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-.items {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-}
-
-@media (max-width: 2100px) {
-  .items {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1700px) {
-  .items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1440px) {
-  .items {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .items {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 </style>
