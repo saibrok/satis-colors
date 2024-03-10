@@ -10,6 +10,7 @@
         />
       </label>
     </div>
+
     <div class="sharp">
       <label>
         <span>Исключить # </span>
@@ -19,6 +20,10 @@
           class="sharp-checkbox"
         />
       </label>
+    </div>
+
+    <div class="theme-toggler-wrapper">
+      <Theme />
     </div>
   </header>
 
@@ -43,6 +48,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import Group from './components/Group.vue';
+import Theme from './components/Theme.vue';
 
 import ITEMS from './assets/items.data.js';
 
@@ -64,10 +70,11 @@ const filteredItems = computed(() => {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .search {
@@ -81,6 +88,15 @@ const filteredItems = computed(() => {
   border: none;
   outline: none;
   text-align: center;
+  border: 1px solid var(--bg-color-invert);
+}
+
+.sharp label {
+  cursor: pointer;
+}
+
+.theme-toggler-wrapper {
+  margin-left: auto;
 }
 
 .group {

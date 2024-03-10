@@ -83,7 +83,7 @@ function onGroupNameClick() {
 }
 
 .chevron-icon {
-  color: #fff;
+  filter: invert(var(--filter-invert));
 }
 
 .items {
@@ -96,26 +96,8 @@ function onGroupNameClick() {
 
 .items-wrapper {
   display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
   gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
   overflow: hidden;
-}
-
-@media (max-width: 1920px) {
-  .items-wrapper {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1440px) {
-  .items-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .items-wrapper {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 </style>

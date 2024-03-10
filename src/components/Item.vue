@@ -7,13 +7,13 @@
           class="image"
           :src="item.image"
         />
-      </div>
-      <div
-        class="color"
-        :style="{ backgroundColor: dominantColor, color: getContrast(dominantColor) ? 'black' : 'white' }"
-        @click="onClick($event, dominantColor)"
-      >
-        {{ dominantColor }}
+        <div
+          class="dominant-color"
+          :style="{ backgroundColor: dominantColor, color: getContrast(dominantColor) ? 'black' : 'white' }"
+          @click="onClick($event, dominantColor)"
+        >
+          <!-- {{ dominantColor }} -->
+        </div>
       </div>
       <div class="palette">
         <div
@@ -23,12 +23,15 @@
           :style="{ backgroundColor: color, color: getContrast(color) ? 'black' : 'white' }"
           @click="onClick($event, color)"
         >
-          {{ color }}
+          <!-- {{ color }} -->
         </div>
       </div>
     </div>
 
-    <div class="name">
+    <div
+      class="name"
+      @click="onClick($event, item.name)"
+    >
       {{ item.name }}
     </div>
 
@@ -79,7 +82,7 @@ function getContrast(color) {
 }
 
 function onClick(event, color) {
-  const slicedColor = color.slice(props.excludeSharp ? 1 : 0);
+  const slicedColor = color.replace(props.excludeSharp ? '#' : '', '');
 
   tooltip.value.show(event.clientX, event.clientY, slicedColor);
 
@@ -126,21 +129,14 @@ onMounted(() => {
   gap: 10px;
   padding: 10px;
   border-radius: 16px;
-  height: 180px;
-  min-width: 400px;
-  flex-grow: 1;
+  font-size: var(--text-size-decreased);
+  justify-content: center;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 128px 1fr 2fr;
+  grid-template-columns: 64px 1fr;
   column-gap: 10px;
-}
-
-@media (max-width: 500px) {
-  .content {
-    grid-template-columns: 64px 1fr 2fr;
-  }
 }
 
 .image-wrapper {
@@ -149,18 +145,12 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   text-align: center;
-  row-gap: 10px;
+  row-gap: 15px;
 }
 
 .image {
-  width: 128px;
+  width: 64px;
   margin: 0 auto;
-}
-
-@media (max-width: 500px) {
-  .image {
-    width: 64px;
-  }
 }
 
 .name {
@@ -169,26 +159,49 @@ onMounted(() => {
   text-overflow: ellipsis;
   overflow: hidden;
   text-align: center;
+  cursor: pointer;
 }
 
 .palette {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 32px);
   gap: 5px;
-  font-size: var(--text-size-decreased);
 }
 
-.color {
+.dominant-color {
   width: 100%;
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-weight: bold;
   border-radius: 8px;
+  transition: scale 0.3s ease;
+  border-radius: 100%;
+  border: 1px solid var(--bg-color-invert);
+}
+
+.dominant-color:hover {
+  scale: 1.2;
+  color: var(--text-color-accent);
+}
+
+.color {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 100%;
+  transition: scale 0.3s ease;
+  border: 1px solid var(--bg-color-invert);
 }
 
 .color:hover {
+  scale: 1.2;
   color: var(--text-color-accent);
 }
 
