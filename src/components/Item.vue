@@ -3,6 +3,7 @@
     <div class="content">
       <div class="image-wrapper">
         <img
+          loading="lazy"
           ref="imageEl"
           class="image"
           :src="item.image"

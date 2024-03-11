@@ -3,7 +3,7 @@
     <span>
       <img
         class="icon"
-        :src="iconMoon"
+        src="/icons/moon.svg"
         alt="moon"
       />
     </span>
@@ -17,7 +17,7 @@
     <span>
       <img
         class="icon"
-        :src="iconSun"
+        src="/icons/sun.svg"
         alt="sun"
       />
     </span>
@@ -25,16 +25,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-
-const iconSun = '/icons/sun.svg';
-const iconMoon = '/icons/moon.svg';
+import { ref, onMounted } from 'vue';
 
 const theme = ref(false);
-
-// watch(theme, (value) => {
-//   toggleTheme()
-// });
 
 function toggleTheme() {
   setTheme(theme.value ? 'dark' : 'light');
@@ -48,12 +41,10 @@ function setTheme(targetTheme) {
 onMounted(() => {
   const storedTheme =
     localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  console.log('LOG ::: storedTheme:', storedTheme);
 
   if (storedTheme) setTheme(storedTheme);
 
   theme.value = storedTheme === 'light' ? true : false;
-  console.log('LOG ::: theme.value:', theme.value);
 });
 </script>
 

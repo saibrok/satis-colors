@@ -5,13 +5,14 @@
   >
     <div
       class="group-name"
-      @click="onGroupNameClick"
+      @click="toggleCollapse"
     >
       <div>{{ group.groupName }}</div>
       <img
         class="chevron-icon"
-        :src="icon"
+        src="/icons/chevron-down.svg"
         alt="chevron"
+        ref="refImg"
       />
     </div>
 
@@ -39,6 +40,10 @@ import { ref } from 'vue';
 
 import Item from './Item.vue';
 
+const refImg = ref();
+
+defineExpose({ toggleCollapse });
+
 const props = defineProps({
   group: {
     type: Object,
@@ -52,17 +57,16 @@ const props = defineProps({
 
 const groupRef = ref();
 const itemsRef = ref();
-const icon = ref('/icons/chevron-down.svg');
 
-function onGroupNameClick() {
+function toggleCollapse() {
   if (itemsRef.value.style.gridTemplateRows === '0fr') {
     itemsRef.value.style.gridTemplateRows = '1fr';
     groupRef.value.style.marginBottom = '20px';
-    icon.value = '/icons/chevron-down.svg';
+    refImg.value.style.transform = 'rotate(0deg)';
   } else {
     itemsRef.value.style.gridTemplateRows = '0fr';
     groupRef.value.style.marginBottom = '0px';
-    icon.value = '/icons/chevron-up.svg';
+    refImg.value.style.transform = 'rotate(180deg)';
   }
 }
 </script>
@@ -84,6 +88,7 @@ function onGroupNameClick() {
 
 .chevron-icon {
   filter: invert(var(--filter-invert));
+  transition: 0.3s transform ease;
 }
 
 .items {
