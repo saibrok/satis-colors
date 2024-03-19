@@ -82,28 +82,37 @@ const filter = ref('');
 const excludeSharp = ref(true);
 const refGoroups = ref();
 const refImg = ref();
+const isCollapsed = ref(false);
 
 const filteredItems = computed(() => {
   return ITEMS.map((item) => ({
     groupName: item.groupName,
     items: item.items.filter((item) => {
       return (
-        item.name.toLowerCase().includes(filter.value.toLowerCase())
-        || item.name.toLowerCase().includes(switchLayout('en', 'ru', filter.value.toLowerCase()))
+        item.name.toLowerCase().includes(filter.value.toLowerCase()) ||
+        item.name.toLowerCase().includes(switchLayout('en', 'ru', filter.value.toLowerCase()))
       );
     }),
   }));
 });
 
 function toggleCollapseAll() {
-  refGoroups.value.forEach((group) => {
-    group.toggleCollapse();
-  });
-
-  if (refImg.value.style.transform === 'rotate(180deg)') {
+  if (isCollapsed.value) {
     refImg.value.style.transform = 'rotate(0deg)';
+
+    refGoroups.value.forEach((group) => {
+      group.openGroup();
+    });
+
+    isCollapsed.value = false;
   } else {
     refImg.value.style.transform = 'rotate(180deg)';
+
+    refGoroups.value.forEach((group) => {
+      group.closeGroup();
+    });
+
+    isCollapsed.value = true;
   }
 }
 </script>

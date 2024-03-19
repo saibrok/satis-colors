@@ -36,13 +36,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import Item from './Item.vue';
 
 const refImg = ref();
 
-defineExpose({ toggleCollapse });
+defineExpose({ openGroup, closeGroup });
 
 const props = defineProps({
   group: {
@@ -58,17 +58,29 @@ const props = defineProps({
 const groupRef = ref();
 const itemsRef = ref();
 
+function closeGroup() {
+  itemsRef.value.style.gridTemplateRows = '0fr';
+  groupRef.value.style.marginBottom = '0px';
+  refImg.value.style.transform = 'rotate(180deg)';
+}
+
+function openGroup() {
+  itemsRef.value.style.gridTemplateRows = '1fr';
+  groupRef.value.style.marginBottom = '20px';
+  refImg.value.style.transform = 'rotate(0deg)';
+}
+
 function toggleCollapse() {
   if (itemsRef.value.style.gridTemplateRows === '0fr') {
-    itemsRef.value.style.gridTemplateRows = '1fr';
-    groupRef.value.style.marginBottom = '20px';
-    refImg.value.style.transform = 'rotate(0deg)';
+    openGroup();
   } else {
-    itemsRef.value.style.gridTemplateRows = '0fr';
-    groupRef.value.style.marginBottom = '0px';
-    refImg.value.style.transform = 'rotate(180deg)';
+    closeGroup();
   }
 }
+
+onMounted(() => {
+  itemsRef.value.style.gridTemplateRows === '0fr';
+});
 </script>
 
 <style scoped>
