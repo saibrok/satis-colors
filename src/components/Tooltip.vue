@@ -28,7 +28,7 @@ function show(x, y, color) {
       class="tooltip"
       :style="{ left: xPosition + 'px', top: yPosition - 60 + 'px' }"
     >
-      <div class="text">Скопировано!</div>
+      <div class="text">{{ $t('messages.copied') }}</div>
       <div>{{ copiedColor }}</div>
     </div>
   </Transition>

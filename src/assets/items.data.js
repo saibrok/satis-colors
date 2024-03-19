@@ -1,717 +1,717 @@
 export default [
   {
-    groupName: 'Руды',
+    groupName: 'ores',
     items: [
       {
-        name: 'Известняк',
+        name: 'limestone',
         image: '/images/limestone.png',
       },
       {
-        name: 'Железная руда',
+        name: 'iron-ore',
         image: '/images/iron-ore.png',
       },
       {
-        name: 'Медная руда',
+        name: 'copper-ore',
         image: '/images/copper-ore.png',
       },
 
       {
-        name: 'Катерийная руда',
+        name: 'caterium-ore',
         image: '/images/caterium-ore.png',
       },
       {
-        name: 'Уголь',
+        name: 'coal',
         image: '/images/coal.png',
       },
       {
-        name: 'Неогранённый кварц',
+        name: 'raw-quartz',
         image: '/images/raw-quartz.png',
       },
       {
-        name: 'Сера',
+        name: 'sulfur',
         image: '/images/sulfur.png',
       },
       {
-        name: 'Боксит',
+        name: 'bauxite',
         image: '/images/bauxite.png',
       },
       {
-        name: 'Уран',
+        name: 'uranium',
         image: '/images/uranium.png',
       },
     ],
   },
   {
-    groupName: 'Слитки',
+    groupName: 'ingots',
     items: [
       {
-        name: 'Железный слиток',
+        name: 'iron-ingot',
         image: '/images/iron-ingot.png',
       },
       {
-        name: 'Медный слиток',
+        name: 'copper-ingot',
         image: '/images/copper-ingot.png',
       },
       {
-        name: 'Катерийный слиток',
+        name: 'caterium-ingot',
         image: '/images/caterium-ingot.png',
       },
       {
-        name: 'Стальной слиток',
+        name: 'steel-ingot',
         image: '/images/steel-ingot.png',
       },
       {
-        name: 'Алюминиевый слиток',
+        name: 'aluminium-ingot',
         image: '/images/aluminium-ingot.png',
       },
     ],
   },
   {
-    groupName: 'Минералы',
+    groupName: 'minerals',
     items: [
       {
-        name: 'Бетон',
+        name: 'concrete',
         image: '/images/concrete.png',
       },
       {
-        name: 'Кварцевый кристалл',
+        name: 'quartz-crystal',
         image: '/images/quartz-crystal.png',
       },
       {
-        name: 'Кремнезём',
+        name: 'silica',
         image: '/images/silica.png',
       },
       {
-        name: 'Медный порошок',
+        name: 'copper-powder',
         image: '/images/copper-powder.png',
       },
       {
-        name: 'Полимерная смола',
+        name: 'polymer-resin',
         image: '/images/polymer-resin.png',
       },
       {
-        name: 'Нефтяной кокс',
+        name: 'petroleum-coke',
         image: '/images/petroleum-coke.png',
       },
       {
-        name: 'Алюминиевый лом',
+        name: 'aluminium-scrap',
         image: '/images/aluminium-scrap.png',
       },
     ],
   },
   {
-    groupName: 'Жидкости',
+    groupName: 'liquids',
     items: [
       {
-        name: 'Вода',
+        name: 'water',
         image: '/images/water.png',
       },
       {
-        name: 'Сырая нефть',
+        name: 'crude-oil',
         image: '/images/crude-oil.png',
       },
       {
-        name: 'Мазут',
+        name: 'heavy-oil-residue',
         image: '/images/heavy-oil-residue.png',
       },
       {
-        name: 'Топливо',
+        name: 'fuel',
         image: '/images/fuel.png',
       },
       {
-        name: 'Жидкое биотопливо',
+        name: 'liquid-biofuel',
         image: '/images/liquid-biofuel.png',
       },
       {
-        name: 'Турботопливо',
+        name: 'turbofuel',
         image: '/images/turbofuel.png',
       },
       {
-        name: 'Раствор глинозёма',
+        name: 'alumina-solution',
         image: '/images/alumina-solution.png',
       },
       {
-        name: 'Серная кислота',
+        name: 'sulfuric-acid',
         image: '/images/sulfuric-acid.png',
       },
       {
-        name: 'Азотная кислота',
+        name: 'nitric-acid',
         image: '/images/nitric-acid.png',
       },
     ],
   },
   {
-    groupName: 'Газы',
+    groupName: 'gases',
     items: [
       {
-        name: 'Азот',
+        name: 'nitrogen',
         image: '/images/nitric-acid.png',
       },
     ],
   },
   {
-    groupName: 'Пришельцы',
+    groupName: 'aliens',
     items: [
       {
-        name: 'Берилловый орех',
+        name: 'beryl-nut',
         image: '/images/beryl-nut.png',
       },
       {
-        name: 'Палеоягода',
+        name: 'paleberry',
         image: '/images/paleberry.png',
       },
       {
-        name: 'Шпиковый мухомор',
+        name: 'bacon-agaric',
         image: '/images/bacon-agaric.png',
       },
       {
-        name: 'Останки кабана',
+        name: 'hog-remains',
         image: '/images/hog-remains.png',
       },
       {
-        name: 'Останки плевателя',
+        name: 'plasma-spitter-remains',
         image: '/images/plasma-spitter-remains.png',
       },
       {
-        name: 'Останки жалоносца',
+        name: 'stinger-remains',
         image: '/images/stinger-remains.png',
       },
       {
-        name: 'Останки гнезда',
+        name: 'hatcher-remains',
         image: '/images/hatcher-remains.png',
       },
       {
-        name: 'Инопланетный протеин',
+        name: 'alien-protein',
         image: '/images/alien-protein.png',
       },
       {
-        name: 'Капсула инопланетной ДНК',
+        name: 'alien-dna-capsule',
         image: '/images/alien-dna-capsule.png',
       },
       {
-        name: 'Синий энергослизень',
+        name: 'blue-power-slug',
         image: '/images/blue-power-slug.png',
       },
       {
-        name: 'Жёлтый энергослизень',
+        name: 'yellow-power-slug',
         image: '/images/yellow-power-slug.png',
       },
       {
-        name: 'Фиолетовый энергослизень',
+        name: 'purple-power-slug',
         image: '/images/purple-power-slug.png',
       },
     ],
   },
   {
-    groupName: 'Стандартные детали',
+    groupName: 'standard-parts',
     items: [
       {
-        name: 'Железный прут',
+        name: 'iron-rod',
         image: '/images/iron-rod.png',
       },
       {
-        name: 'Винты',
+        name: 'screw',
         image: '/images/screw.png',
       },
       {
-        name: 'Железная пластина',
+        name: 'iron-plate',
         image: '/images/iron-plate.png',
       },
       {
-        name: 'Усиленная железная пластина',
+        name: 'reinforced-iron-plate',
         image: '/images/reinforced-iron-plate.png',
       },
       {
-        name: 'Медный лист',
+        name: 'copper-sheet',
         image: '/images/copper-sheet.png',
       },
       {
-        name: 'Дюралюминиевый лист',
+        name: 'alclad-aluminum-sheet',
         image: '/images/alclad-aluminum-sheet.png',
       },
       {
-        name: 'Алюминиевый корпус',
+        name: 'aluminium-casing',
         image: '/images/aluminium-casing.png',
       },
       {
-        name: 'Стальная труба',
+        name: 'steel-pipe',
         image: '/images/steel-pipe.png',
       },
       {
-        name: 'Стальная балка',
+        name: 'steel-beam',
         image: '/images/steel-beam.png',
       },
       {
-        name: 'Железобетонная балка',
+        name: 'encased-steel-beam',
         image: '/images/encased-steel-beam.png',
       },
       {
-        name: 'Модульный каркас',
+        name: 'modular-frame',
         image: '/images/modular-frame.png',
       },
       {
-        name: 'Тяжёлый модульный каркас',
+        name: 'heavy-modular-frame',
         image: '/images/heavy-modular-frame.png',
       },
       {
-        name: 'Сплавленный модульный каркас',
+        name: 'fused-modular-frame',
         image: '/images/fused-modular-frame.png',
       },
       {
-        name: 'Ткань',
+        name: 'fabric',
         image: '/images/fabric.png',
       },
       {
-        name: 'Пластик',
+        name: 'plastic',
         image: '/images/plastic.png',
       },
       {
-        name: 'Резина',
+        name: 'rubber',
         image: '/images/rubber.png',
       },
     ],
   },
   {
-    groupName: 'Промышленные детали',
+    groupName: 'industrial-parts',
     items: [
       {
-        name: 'Ротор',
+        name: 'rotor',
         image: '/images/rotor.png',
       },
       {
-        name: 'Статор',
+        name: 'stator',
         image: '/images/stator.png',
       },
       {
-        name: 'Аккумулятор',
+        name: 'battery',
         image: '/images/battery.png',
       },
       {
-        name: 'Мотор',
+        name: 'motor',
         image: '/images/motor.png',
       },
       {
-        name: 'Радиатор',
+        name: 'heat-sink',
         image: '/images/heat-sink.png',
       },
       {
-        name: 'Система охлаждения',
+        name: 'cooling-system',
         image: '/images/cooling-system.png',
       },
       {
-        name: 'Турбомотор',
+        name: 'turbo-motor',
         image: '/images/turbo-motor.png',
       },
       {
-        name: 'Куб преобразования давления',
+        name: 'pressure-conversion-cube',
         image: '/images/pressure-conversion-cube.png',
       },
     ],
   },
   {
-    groupName: 'Электроника',
+    groupName: 'electronics',
     items: [
       {
-        name: 'Проволока',
+        name: 'wire',
         image: '/images/wire.png',
       },
       {
-        name: 'Кабель',
+        name: 'cable',
         image: '/images/cable.png',
       },
       {
-        name: 'Сверхпроволока',
+        name: 'quickwire',
         image: '/images/quickwire.png',
       },
       {
-        name: 'Печатная плата',
+        name: 'circuit-board',
         image: '/images/circuit-board.png',
       },
       {
-        name: 'Ограничитель ИИ',
+        name: 'ai-limiter',
         image: '/images/ai-limiter.png',
       },
       {
-        name: 'Скоростной разъём',
+        name: 'high-speed-connector',
         image: '/images/high-speed-connector.png',
       },
     ],
   },
   {
-    groupName: 'Коммуникации',
+    groupName: 'communications',
     items: [
       {
-        name: 'Компьютер',
+        name: 'computer',
         image: '/images/computer.png',
       },
       {
-        name: 'Суперкомпьютер',
+        name: 'supercomputer',
         image: '/images/supercomputer.png',
       },
       {
-        name: 'Квантовый компьютер',
+        name: 'quantum-computer',
         image: '/images/quantum-computer.png',
       },
       {
-        name: 'Блок радиоуправления',
+        name: 'radio-control-unit',
         image: '/images/radio-control-unit.png',
       },
       {
-        name: 'Кварцевый резонатор',
+        name: 'crystal-oscillator',
         image: '/images/crystal-oscillator.png',
       },
       {
-        name: 'Суперпозиционный резонатор',
+        name: 'superposition-oscillator',
         image: '/images/superposition-oscillator.png',
       },
     ],
   },
   {
-    groupName: 'Ёмкости',
+    groupName: 'containers',
     items: [
       {
-        name: 'Пустая канистра',
+        name: 'empty-canister',
         image: '/images/empty-canister.png',
       },
       {
-        name: 'Пустой баллон',
+        name: 'empty-fluid-tank',
         image: '/images/empty-fluid-tank.png',
       },
       {
-        name: 'Бутыль воды',
+        name: 'packaged-water',
         image: '/images/packaged-water.png',
       },
       {
-        name: 'Бутыль раствора глинозёма',
+        name: 'packaged-alumina-solution',
         image: '/images/packaged-alumina-solution.png',
       },
       {
-        name: 'Канистра серной кислоты',
+        name: 'packaged-sulfuric-acid',
         image: '/images/packaged-sulfuric-acid.png',
       },
       {
-        name: 'Канистра азотной кислоты',
+        name: 'packaged-nitric-acid',
         image: '/images/packaged-nitric-acid.png',
       },
       {
-        name: 'Баллон азота',
+        name: 'packaged-nitrogen-gas',
         image: '/images/packaged-nitrogen-gas.png',
       },
     ],
   },
   {
-    groupName: 'Топливо',
+    groupName: 'fuel',
     items: [
       {
-        name: 'Листва',
+        name: 'leaves',
         image: '/images/leaves.png',
       },
       {
-        name: 'Мицелий',
+        name: 'mycelia',
         image: '/images/mycelia.png',
       },
       {
-        name: 'Цветочные лепестки',
+        name: 'flower-petals',
         image: '/images/flower-petals.png',
       },
       {
-        name: 'Древесина',
+        name: 'wood',
         image: '/images/wood.png',
       },
       {
-        name: 'Биомасса',
+        name: 'biomass',
         image: '/images/biomass.png',
       },
       {
-        name: 'Угольный брикет',
+        name: 'compacted-coal',
         image: '/images/compacted-coal.png',
       },
       {
-        name: 'Бочка нефти',
+        name: 'packaged-oil',
         image: '/images/packaged-oil.png',
       },
       {
-        name: 'Бочка мазута',
+        name: 'packaged-heavy-oil-residue',
         image: '/images/packaged-heavy-oil-residue.png',
       },
       {
-        name: 'Твёрдое биотопливо',
+        name: 'solid-biofuel',
         image: '/images/solid-biofuel.png',
       },
       {
-        name: 'Канистра топлива',
+        name: 'packaged-fuel',
         image: '/images/packaged-fuel.png',
       },
       {
-        name: 'Канистра биотоплива',
+        name: 'packaged-liquid-biofuel',
         image: '/images/packaged-liquid-biofuel.png',
       },
       {
-        name: 'Канистра турботоплива',
+        name: 'packaged-turbofuel',
         image: '/images/packaged-turbofuel.png',
       },
       {
-        name: 'Урановый стержень',
+        name: 'uranium-fuel-rod',
         image: '/images/uranium-fuel-rod.png',
       },
       {
-        name: 'Плутониевый стержень',
+        name: 'plutonium-fuel-rod',
         image: '/images/plutonium-fuel-rod.png',
       },
     ],
   },
   {
-    groupName: 'Потребление',
+    groupName: 'nuclear-energy',
     items: [
       {
-        name: 'Чёрный порох',
-        image: '/images/black-powder.png',
-      },
-      {
-        name: 'Бездымный порох',
-        image: '/images/smokeless-powder.png',
-      },
-      {
-        name: 'Газовый фильтр',
-        image: '/images/gas-filter.png',
-      },
-      {
-        name: 'Красящий патрон',
-        image: '/images/color-cartridge.png',
-      },
-      {
-        name: 'Йодный фильтр',
-        image: '/images/iodine-infused-filter.png',
-      },
-      {
-        name: 'Купон FICSIT',
-        image: '/images/ficsit-coupon.png',
-      },
-      {
-        name: 'Энергомодуль',
-        image: '/images/power-shard.png',
-      },
-      {
-        name: 'Жёсткий диск',
-        image: '/images/hard-drive.png',
-      },
-    ],
-  },
-  {
-    groupName: 'Боеприпасы',
-    items: [
-      {
-        name: 'Железный болт',
-        image: '/images/iron-rebar.png',
-      },
-      {
-        name: 'Парализующий болт',
-        image: '/images/stun-rebar.png',
-      },
-      {
-        name: 'Дробный болт',
-        image: '/images/shatter-rebar.png',
-      },
-      {
-        name: 'Разрывной болт',
-        image: '/images/explosive-rebar.png',
-      },
-      {
-        name: 'Патроны для винтовки',
-        image: '/images/rifle-ammo.png',
-      },
-      {
-        name: 'Самонаводящиеся патроны для винтовки',
-        image: '/images/homing-rifle-ammo.png',
-      },
-      {
-        name: 'Турбопатроны для винтовки',
-        image: '/images/turbo-rifle-ammo.png',
-      },
-      {
-        name: 'Нобелиск',
-        image: '/images/nobelisk.png',
-      },
-      {
-        name: 'Газовый нобелиск',
-        image: '/images/gas-nobelisk.png',
-      },
-      {
-        name: 'Ударный нобелиск',
-        image: '/images/pulse-nobelisk.png',
-      },
-      {
-        name: 'Осколочный нобелиск',
-        image: '/images/cluster-nobelisk.png',
-      },
-      {
-        name: 'Ядерный нобелиск',
-        image: '/images/nuke-nobelisk.png',
-      },
-    ],
-  },
-  {
-    groupName: 'Ядерная энергия',
-    items: [
-      {
-        name: 'Электромагнитный регулирующий стержень',
+        name: 'electromagnetic-control-rod',
         image: '/images/electromagnetic-control-rod.png',
       },
       {
-        name: 'Обетонированная урановая ячейка',
+        name: 'encased-uranium-cell',
         image: '/images/encased-uranium-cell.png',
       },
       {
-        name: 'Нерасщепляемый уран',
+        name: 'non-fissile-uranium',
         image: '/images/non-fissile-uranium.png',
       },
       {
-        name: 'Плутониевая таблетка',
+        name: 'plutonium-pellet',
         image: '/images/plutonium-pellet.png',
       },
       {
-        name: 'Обетонированная плутониевая ячейка',
+        name: 'encased-plutonium-cell',
         image: '/images/encased-plutonium-cell.png',
       },
       {
-        name: 'Урановые отходы',
+        name: 'uranium-waste',
         image: '/images/uranium-waste.png',
       },
       {
-        name: 'Плутониевые отходы',
+        name: 'plutonium-waste',
         image: '/images/plutonium-waste.png',
       },
     ],
   },
   {
-    groupName: 'Космический лифт',
+    groupName: 'space-elevator',
     items: [
       {
-        name: 'Умная обшивка',
+        name: 'smart-plating',
         image: '/images/smart-plating.png',
       },
       {
-        name: 'Универсальный каркас',
+        name: 'versatile-framework',
         image: '/images/versatile-framework.png',
       },
       {
-        name: 'Автопроводка',
+        name: 'automated-wiring',
         image: '/images/automated-wiring.png',
       },
       {
-        name: 'Модульный двигатель',
+        name: 'modular-engine',
         image: '/images/modular-engine.png',
       },
       {
-        name: 'Адаптивный блок управления',
+        name: 'adaptive-control-unit',
         image: '/images/adaptive-control-unit.png',
       },
       {
-        name: 'Система управления сборкой',
+        name: 'assembly-director-system',
         image: '/images/assembly-director-system.png',
       },
       {
-        name: 'Генератор магнитного поля',
+        name: 'magnetic-field-generator',
         image: '/images/magnetic-field-generator.png',
       },
       {
-        name: 'Ракета на тепловой тяге',
+        name: 'thermal-propulsion-rocket',
         image: '/images/thermal-propulsion-rocket.png',
       },
       {
-        name: 'Ядерная паста',
+        name: 'nuclear-pasta',
         image: '/images/nuclear-pasta.png',
       },
     ],
   },
   {
-    groupName: 'Тело',
+    groupName: 'consumption',
     items: [
       {
-        name: 'Экзоскелет',
-        image: '/images/blade-runners.png',
+        name: 'black-powder',
+        image: '/images/black-powder.png',
       },
       {
-        name: 'Парашют',
-        image: '/images/parachute.png',
+        name: 'smokeless-powder',
+        image: '/images/smokeless-powder.png',
       },
       {
-        name: 'Реактивный ранец',
-        image: '/images/jetpack.png',
+        name: 'gas-filter',
+        image: '/images/gas-filter.png',
       },
       {
-        name: 'Ранец для парения',
-        image: '/images/hover-pack.png',
+        name: 'color-cartridge',
+        image: '/images/color-cartridge.png',
       },
       {
-        name: 'Респиратор',
-        image: '/images/gas-mask.png',
+        name: 'iodine-infused-filter',
+        image: '/images/iodine-infused-filter.png',
       },
       {
-        name: 'Защитный костюм',
-        image: '/images/hazmat-suit.png',
+        name: 'ficsit-coupon',
+        image: '/images/ficsit-coupon.png',
+      },
+      {
+        name: 'power-shard',
+        image: '/images/power-shard.png',
+      },
+      {
+        name: 'hard-drive',
+        image: '/images/hard-drive.png',
       },
     ],
   },
   {
-    groupName: 'Руки',
+    groupName: 'ammunition',
     items: [
       {
-        name: 'Переносной бур',
-        image: '/images/portable-miner.png',
+        name: 'iron-rebar',
+        image: '/images/iron-rebar.png',
       },
       {
-        name: 'Зиплайн',
-        image: '/images/zipline.png',
+        name: 'stun-rebar',
+        image: '/images/stun-rebar.png',
       },
       {
-        name: 'Цепная пила',
-        image: '/images/chainsaw.png',
+        name: 'shatter-rebar',
+        image: '/images/shatter-rebar.png',
       },
       {
-        name: 'Сканер объектов',
-        image: '/images/object-scanner.png',
+        name: 'explosive-rebar',
+        image: '/images/explosive-rebar.png',
       },
       {
-        name: 'Медицинский ингалятор',
-        image: '/images/medicinal-inhaler.png',
+        name: 'rifle-ammo',
+        image: '/images/rifle-ammo.png',
+      },
+      {
+        name: 'homing-rifle-ammo',
+        image: '/images/homing-rifle-ammo.png',
+      },
+      {
+        name: 'turbo-rifle-ammo',
+        image: '/images/turbo-rifle-ammo.png',
+      },
+      {
+        name: 'nobelisk',
+        image: '/images/nobelisk.png',
+      },
+      {
+        name: 'gas-nobelisk',
+        image: '/images/gas-nobelisk.png',
+      },
+      {
+        name: 'pulse-nobelisk',
+        image: '/images/pulse-nobelisk.png',
+      },
+      {
+        name: 'cluster-nobelisk',
+        image: '/images/cluster-nobelisk.png',
+      },
+      {
+        name: 'nuke-nobelisk',
+        image: '/images/nuke-nobelisk.png',
       },
     ],
   },
   {
-    groupName: 'Оружие',
+    groupName: 'weapon',
     items: [
       {
-        name: 'Ксеношокер',
+        name: 'xeno-zapper',
         image: '/images/xeno-zapper.png',
       },
       {
-        name: 'Ксенодубинка',
+        name: 'xeno-basher',
         image: '/images/xeno-basher.png',
       },
       {
-        name: 'Арматурный пистолет',
+        name: 'rebar-gun',
         image: '/images/rebar-gun.png',
       },
       {
-        name: 'Винтовка',
+        name: 'rifle',
         image: '/images/rifle.png',
       },
       {
-        name: 'Детонатор нобелиска',
+        name: 'nobelisk-detonator',
         image: '/images/nobelisk-detonator.png',
       },
     ],
   },
   {
-    groupName: 'Особое',
+    groupName: 'body',
     items: [
       {
-        name: 'Петлевик',
+        name: 'blade-runners',
+        image: '/images/blade-runners.png',
+      },
+      {
+        name: 'parachute',
+        image: '/images/parachute.png',
+      },
+      {
+        name: 'jetpack',
+        image: '/images/jetpack.png',
+      },
+      {
+        name: 'hover-pack',
+        image: '/images/hover-pack.png',
+      },
+      {
+        name: 'gas-mask',
+        image: '/images/gas-mask.png',
+      },
+      {
+        name: 'hazmat-suit',
+        image: '/images/hazmat-suit.png',
+      },
+    ],
+  },
+  {
+    groupName: 'hands',
+    items: [
+      {
+        name: 'portable-miner',
+        image: '/images/portable-miner.png',
+      },
+      {
+        name: 'zipline',
+        image: '/images/zipline.png',
+      },
+      {
+        name: 'chainsaw',
+        image: '/images/chainsaw.png',
+      },
+      {
+        name: 'object-scanner',
+        image: '/images/object-scanner.png',
+      },
+      {
+        name: 'medicinal-inhaler',
+        image: '/images/medicinal-inhaler.png',
+      },
+    ],
+  },
+  {
+    groupName: 'special',
+    items: [
+      {
+        name: 'somers-loop',
         image: '/images/somers-loop.png',
       },
       {
-        name: 'Сфера Мерсера',
+        name: 'mercer-sphere',
         image: '/images/mercer-sphere.png',
       },
     ],

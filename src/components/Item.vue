@@ -33,7 +33,7 @@
       class="name"
       @click="onClick($event, item.name)"
     >
-      {{ item.name }}
+      {{ $t(`items.${item.name}`) }}
     </div>
 
     <Tooltip ref="tooltip" />

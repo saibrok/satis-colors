@@ -7,7 +7,7 @@
       class="group-name"
       @click="toggleCollapse"
     >
-      <div>{{ group.groupName }}</div>
+      <div>{{ $t(`groups.${group.groupName}`) }}</div>
       <img
         class="chevron-icon"
         src="/icons/chevron-down.svg"
@@ -37,7 +37,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-
 import Item from './Item.vue';
 
 const refImg = ref();

@@ -2,4 +2,8 @@ import { createApp } from 'vue';
 import './styles/_index.css';
 import App from './App.vue';
 
-createApp(App).mount('#app');
+import i18n from './plugins/vue-i18n';
+
+const app = createApp(App);
+
+app.use(i18n).mount('#app');
