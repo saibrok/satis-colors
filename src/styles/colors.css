@@ -1,7 +1,7 @@
 :root {
   --text-size-primary: 16px;
   --text-size-increased: 22px;
-  --text-size-decreased: 12px;
+  --text-size-decreased: 13px;
 }
 
 html[data-theme='light'] {
@@ -11,7 +11,7 @@ html[data-theme='light'] {
   --bg-color-neutral: #ededed;
   --bg-color-invert: #797979;
 
-  --text-color-primary: #000000;
+  --text-color-primary: #111111;
   --text-color-accent: #1b66c9;
   --filter-invert: 0.5;
 }
@@ -23,7 +23,7 @@ html[data-theme='dark'] {
   --bg-color-neutral: #28292a;
   --bg-color-invert: #7d7d7d;
 
-  --text-color-primary: #ffffff;
+  --text-color-primary: #eeeeee;
   --text-color-accent: #adcaf7;
   --filter-invert: 0;
 }

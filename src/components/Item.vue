@@ -11,27 +11,31 @@
         <div
           class="dominant-color"
           :style="{ backgroundColor: dominantColor, color: getContrast(dominantColor) ? 'black' : 'white' }"
-          @click="onClick($event, dominantColor)"
+          @click="onClickColor($event, dominantColor)"
         >
           <!-- {{ dominantColor }} -->
         </div>
       </div>
       <div class="palette">
         <div
-          v-for="color in palette"
+          v-for="(color, index) in palette"
           :key="color"
           class="color"
-          :style="{ backgroundColor: color, color: getContrast(color) ? 'black' : 'white' }"
-          @click="onClick($event, color)"
+          :style="{
+            backgroundColor: color,
+            color: getContrast(color) ? 'black' : 'white',
+          }"
+          @click="onClickPalette($event, color, index)"
         >
           <!-- {{ color }} -->
+          <div v-if="favoriteColors.includes(index)">&#10004;</div>
         </div>
       </div>
     </div>
 
     <div
       class="name"
-      @click="onClick($event, item.name)"
+      @click="onClickText($event, item.localizedName)"
     >
       {{ $t(`items.${item.name}`) }}
     </div>
@@ -61,6 +65,9 @@ const tooltip = ref();
 const dominantColor = ref('');
 const palette = ref([]);
 
+const localFavoriteColors = ref({});
+const favoriteColors = ref([]);
+
 function decToHex(dec) {
   let hex = dec.toString(16);
 
@@ -82,12 +89,44 @@ function getContrast(color) {
   return contrast > 1.4;
 }
 
-function onClick(event, color) {
+function getLocalFavoriteColors() {
+  localFavoriteColors.value = JSON.parse(localStorage.getItem('favoriteColors')) || {};
+
+  favoriteColors.value = localFavoriteColors.value[props.item.name] || [];
+}
+
+function copyText(event, text) {
+  tooltip.value.show(event.clientX, event.clientY, text);
+
+  copyToClipboard(text);
+}
+
+function onClickColor(event, color) {
   const slicedColor = color.replace(props.excludeSharp ? '#' : '', '');
 
-  tooltip.value.show(event.clientX, event.clientY, slicedColor);
+  copyText(event, slicedColor);
+}
 
-  copyToClipboard(slicedColor);
+function onClickPalette(event, color, index) {
+  getLocalFavoriteColors();
+
+  if (event.metaKey || event.ctrlKey) {
+    if (favoriteColors.value.some((colorIndex) => colorIndex === index)) {
+      favoriteColors.value = favoriteColors.value.filter((colorIndex) => colorIndex !== index);
+    } else {
+      favoriteColors.value.push(index);
+    }
+
+    localFavoriteColors.value[props.item.name] = favoriteColors.value;
+
+    localStorage.setItem('favoriteColors', JSON.stringify(localFavoriteColors.value));
+  } else {
+    onClickColor(event, color);
+  }
+}
+
+function onClickText(event, text) {
+  copyText(event, text);
 }
 
 function setColors(img) {
@@ -119,6 +158,8 @@ onMounted(() => {
       setColors(img);
     });
   }
+
+  getLocalFavoriteColors();
 });
 </script>
 
@@ -161,6 +202,12 @@ onMounted(() => {
   overflow: hidden;
   text-align: center;
   cursor: pointer;
+  transition: scale 0.3s ease;
+  line-height: normal;
+}
+
+.name:hover {
+  scale: 1.2;
 }
 
 .palette {

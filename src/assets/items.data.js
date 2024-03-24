@@ -150,59 +150,6 @@ export default [
     ],
   },
   {
-    groupName: 'aliens',
-    items: [
-      {
-        name: 'beryl-nut',
-        image: '/images/beryl-nut.png',
-      },
-      {
-        name: 'paleberry',
-        image: '/images/paleberry.png',
-      },
-      {
-        name: 'bacon-agaric',
-        image: '/images/bacon-agaric.png',
-      },
-      {
-        name: 'hog-remains',
-        image: '/images/hog-remains.png',
-      },
-      {
-        name: 'plasma-spitter-remains',
-        image: '/images/plasma-spitter-remains.png',
-      },
-      {
-        name: 'stinger-remains',
-        image: '/images/stinger-remains.png',
-      },
-      {
-        name: 'hatcher-remains',
-        image: '/images/hatcher-remains.png',
-      },
-      {
-        name: 'alien-protein',
-        image: '/images/alien-protein.png',
-      },
-      {
-        name: 'alien-dna-capsule',
-        image: '/images/alien-dna-capsule.png',
-      },
-      {
-        name: 'blue-power-slug',
-        image: '/images/blue-power-slug.png',
-      },
-      {
-        name: 'yellow-power-slug',
-        image: '/images/yellow-power-slug.png',
-      },
-      {
-        name: 'purple-power-slug',
-        image: '/images/purple-power-slug.png',
-      },
-    ],
-  },
-  {
     groupName: 'standard-parts',
     items: [
       {
@@ -531,6 +478,59 @@ export default [
       {
         name: 'nuclear-pasta',
         image: '/images/nuclear-pasta.png',
+      },
+    ],
+  },
+  {
+    groupName: 'aliens',
+    items: [
+      {
+        name: 'beryl-nut',
+        image: '/images/beryl-nut.png',
+      },
+      {
+        name: 'paleberry',
+        image: '/images/paleberry.png',
+      },
+      {
+        name: 'bacon-agaric',
+        image: '/images/bacon-agaric.png',
+      },
+      {
+        name: 'hog-remains',
+        image: '/images/hog-remains.png',
+      },
+      {
+        name: 'plasma-spitter-remains',
+        image: '/images/plasma-spitter-remains.png',
+      },
+      {
+        name: 'stinger-remains',
+        image: '/images/stinger-remains.png',
+      },
+      {
+        name: 'hatcher-remains',
+        image: '/images/hatcher-remains.png',
+      },
+      {
+        name: 'alien-protein',
+        image: '/images/alien-protein.png',
+      },
+      {
+        name: 'alien-dna-capsule',
+        image: '/images/alien-dna-capsule.png',
+      },
+      {
+        name: 'blue-power-slug',
+        image: '/images/blue-power-slug.png',
+      },
+      {
+        name: 'yellow-power-slug',
+        image: '/images/yellow-power-slug.png',
+      },
+      {
+        name: 'purple-power-slug',
+        image: '/images/purple-power-slug.png',
       },
     ],
   },

@@ -3,4 +3,5 @@ export default {
   exclude: 'Исключить',
   collapse: 'Свернуть всё',
   copied: 'Скопировано',
+  favorite: 'избранное',
 };

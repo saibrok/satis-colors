@@ -5,13 +5,13 @@ defineExpose({ show });
 
 const xPosition = ref(0);
 const yPosition = ref(0);
-const copiedColor = ref('');
+const copiedText = ref('');
 const isVsible = ref(false);
 
-function show(x, y, color) {
+function show(x, y, text) {
   xPosition.value = x;
   yPosition.value = y;
-  copiedColor.value = color;
+  copiedText.value = text;
 
   isVsible.value = true;
 
@@ -29,7 +29,7 @@ function show(x, y, color) {
       :style="{ left: xPosition + 'px', top: yPosition - 60 + 'px' }"
     >
       <div class="text">{{ $t('messages.copied') }}</div>
-      <div>{{ copiedColor }}</div>
+      <div class="copied-text">[ {{ copiedText }} ]</div>
     </div>
   </Transition>
 </template>
@@ -44,10 +44,17 @@ function show(x, y, color) {
   transform: translateX(-50%);
   pointer-events: none;
   text-align: center;
+  border: 1px solid var(--bg-color-invert);
 }
 
 .text {
   margin-bottom: 5px;
+}
+
+.copied-text {
+  font-weight: 700;
+  font-size: var(--text-size-primary);
+  color: var(--text-color-primary);
 }
 
 .v-enter-active,

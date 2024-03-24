@@ -3,4 +3,5 @@ export default {
   exclude: 'Exclude',
   collapse: 'Collapse all',
   copied: 'Copied',
+  favorite: 'favorite',
 };

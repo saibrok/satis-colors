@@ -49,7 +49,9 @@
       <Theme />
     </div>
 
-    <button @click="onClick">lng: {{ language }}</button>
+    <button class="language-button" @click="onClick">lng: {{ language }}</button>
+
+    <div class="hint">ctrl + click => {{ $t('messages.favorite') }}</div>
   </header>
 
   <main class="main">
@@ -77,7 +79,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import switchLayout from './helpers/switch-keyboard-layout';
@@ -148,35 +150,25 @@ function toggleCollapseAll() {
     isCollapsed.value = true;
   }
 }
-
-// ITEMS.forEach((item) => {
-//   console.log('LOG ::: i18n.t(item.name):', item);
-// });
-
-// onMounted(() => {
-//   const names = refGroups.value.getElementsByClassName('name');
-
-//   Array.from(names).forEach((element) => {
-//     console.log('LOG ::: names:', element.innerText);
-//   });
-
-//   // document.getElementsByClassName
-// });
 </script>
 
 <style scoped>
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
+  background-color: var(--bg-color-primary);
+  z-index: 1;
 }
 
 .main {
-  padding: 10px;
-  padding-bottom: 35px;
+  padding: 51px 10px 35px;
 }
 
 .search {
@@ -217,6 +209,17 @@ function toggleCollapseAll() {
   background-color: var(--bg-color-accent);
   color: var(--text-color-primary);
   cursor: pointer;
+}
+
+.language-button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: var(--text-size-decreased);
 }
 
 .chevron-icon {
