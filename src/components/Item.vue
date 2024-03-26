@@ -11,9 +11,10 @@
         <div
           class="dominant-color"
           :style="{ backgroundColor: dominantColor, color: getContrast(dominantColor) ? 'black' : 'white' }"
-          @click="onClickColor($event, dominantColor)"
+          @click="onClickDominantColor($event, dominantColor, item.name)"
         >
           <!-- {{ dominantColor }} -->
+          <div v-if="localDominantFavoriteColors.includes(item.name)">&#10004;</div>
         </div>
       </div>
       <div class="palette">
@@ -65,8 +66,10 @@ const tooltip = ref();
 const dominantColor = ref('');
 const palette = ref([]);
 
-const localFavoriteColors = ref({});
 const favoriteColors = ref([]);
+
+const localFavoriteColors = ref({});
+const localDominantFavoriteColors = ref([]);
 
 function decToHex(dec) {
   let hex = dec.toString(16);
@@ -95,6 +98,10 @@ function getLocalFavoriteColors() {
   favoriteColors.value = localFavoriteColors.value[props.item.name] || [];
 }
 
+function getDominantFavoriteColors() {
+  localDominantFavoriteColors.value = JSON.parse(localStorage.getItem('dominantFavoriteColors')) || [];
+}
+
 function copyText(event, text) {
   tooltip.value.show(event.clientX, event.clientY, text);
 
@@ -107,10 +114,29 @@ function onClickColor(event, color) {
   copyText(event, slicedColor);
 }
 
-function onClickPalette(event, color, index) {
-  getLocalFavoriteColors();
-
+function onClickDominantColor(event, color, name) {
   if (event.metaKey || event.ctrlKey) {
+    getDominantFavoriteColors();
+
+    if (localDominantFavoriteColors.value.includes(name)) {
+      localDominantFavoriteColors.value.splice(
+        localDominantFavoriteColors.value.findIndex((colorName) => colorName === name),
+        1
+      );
+    } else {
+      localDominantFavoriteColors.value.push(name);
+    }
+
+    localStorage.setItem('dominantFavoriteColors', JSON.stringify(localDominantFavoriteColors.value));
+  } else {
+    onClickColor(event, color);
+  }
+}
+
+function onClickPalette(event, color, index) {
+  if (event.metaKey || event.ctrlKey) {
+    getLocalFavoriteColors();
+
     if (favoriteColors.value.some((colorIndex) => colorIndex === index)) {
       favoriteColors.value = favoriteColors.value.filter((colorIndex) => colorIndex !== index);
     } else {
@@ -160,6 +186,7 @@ onMounted(() => {
   }
 
   getLocalFavoriteColors();
+  getDominantFavoriteColors();
 });
 </script>
 
