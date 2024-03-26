@@ -157,13 +157,13 @@ function onClickText(event, text) {
 
 function setColors(img) {
   const colorThief = new ColorThief();
-  const dominantColorArr = colorThief.getColor(img);
+  const dominantColorArr = colorThief.getColor(img, 20);
 
   dominantColor.value = dominantColorArr.reduce((acc, el) => {
     return acc + decToHex(el).toUpperCase();
   }, '#');
 
-  const paletteArr = colorThief.getPalette(img, 12, 10);
+  const paletteArr = colorThief.getPalette(img, 12, 20);
 
   palette.value = paletteArr.map((color) => {
     return color.reduce((acc, el) => {
