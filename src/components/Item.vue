@@ -31,14 +31,45 @@
           <!-- {{ color }} -->
           <div v-if="favoriteColors.includes(index)">&#10004;</div>
         </div>
+        <div
+          v-for="(color, index) in customColors"
+          :key="color"
+          class="color"
+          :style="{
+            backgroundColor: color,
+            color: getContrast(color) ? 'black' : 'white',
+          }"
+          @click="onClickCustomColor($event, color, index)"
+        >
+          <!-- {{ color }} -->
+          <div v-if="isCtrlDown">
+            <img
+              class="trash-icon"
+              src="/icons/trash.svg"
+              alt="trash"
+              :style="{ filter: `invert(${getContrast(color) ? 1 : 0})` }"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
-    <div
-      class="name"
-      @click="onClickText($event, item.localizedName)"
-    >
-      {{ $t(`items.${item.name}`) }}
+    <div class="footer">
+      <div
+        class="name"
+        @click="onClickText($event, item.localizedName)"
+      >
+        {{ $t(`items.${item.name}`) }}
+      </div>
+
+      <ColorInput
+        class="add-color"
+        format="hex string"
+        position="top"
+        disable-alpha
+        v-model="newCustomColor"
+        @pickEnd="addNewCustomColor"
+      />
     </div>
 
     <Tooltip ref="tooltip" />
@@ -49,6 +80,8 @@
 import { ref, onMounted } from 'vue';
 import copyToClipboard from 'copy-to-clipboard';
 import ColorThief from '../../node_modules/colorthief/dist/color-thief.mjs';
+
+import ColorInput from 'vue-color-input';
 
 import Tooltip from './Tooltip.vue';
 
@@ -67,9 +100,15 @@ const dominantColor = ref('');
 const palette = ref([]);
 
 const favoriteColors = ref([]);
+const customColors = ref([]);
 
 const localFavoriteColors = ref({});
 const localDominantFavoriteColors = ref([]);
+const localCustomColors = ref({});
+
+const newCustomColor = ref('#000000');
+const oldCustomColor = ref('#000000');
+const isCtrlDown = ref(false);
 
 function decToHex(dec) {
   let hex = dec.toString(16);
@@ -98,6 +137,12 @@ function getLocalFavoriteColors() {
   favoriteColors.value = localFavoriteColors.value[props.item.name] || [];
 }
 
+function getLocalCustomColors() {
+  localCustomColors.value = JSON.parse(localStorage.getItem('customColors')) || {};
+
+  customColors.value = localCustomColors.value[props.item.name] || [];
+}
+
 function getDominantFavoriteColors() {
   localDominantFavoriteColors.value = JSON.parse(localStorage.getItem('dominantFavoriteColors')) || [];
 }
@@ -115,7 +160,7 @@ function onClickColor(event, color) {
 }
 
 function onClickDominantColor(event, color, name) {
-  if (event.metaKey || event.ctrlKey) {
+  if (event.ctrlKey) {
     getDominantFavoriteColors();
 
     if (localDominantFavoriteColors.value.includes(name)) {
@@ -134,7 +179,7 @@ function onClickDominantColor(event, color, name) {
 }
 
 function onClickPalette(event, color, index) {
-  if (event.metaKey || event.ctrlKey) {
+  if (event.ctrlKey) {
     getLocalFavoriteColors();
 
     if (favoriteColors.value.some((colorIndex) => colorIndex === index)) {
@@ -146,6 +191,17 @@ function onClickPalette(event, color, index) {
     localFavoriteColors.value[props.item.name] = favoriteColors.value;
 
     localStorage.setItem('favoriteColors', JSON.stringify(localFavoriteColors.value));
+  } else {
+    onClickColor(event, color);
+  }
+}
+
+function onClickCustomColor(event, color, index) {
+  if (event.ctrlKey) {
+    customColors.value.splice(index, 1);
+
+    localCustomColors.value[props.item.name] = customColors.value;
+    localStorage.setItem('customColors', JSON.stringify(localCustomColors.value));
   } else {
     onClickColor(event, color);
   }
@@ -174,6 +230,19 @@ function setColors(img) {
   palette.value.sort();
 }
 
+function addNewCustomColor() {
+  if (oldCustomColor.value !== newCustomColor.value) {
+    oldCustomColor.value = newCustomColor.value;
+
+    getLocalCustomColors();
+
+    customColors.value.push(newCustomColor.value);
+
+    localCustomColors.value[props.item.name] = customColors.value;
+    localStorage.setItem('customColors', JSON.stringify(localCustomColors.value));
+  }
+}
+
 onMounted(() => {
   const img = imageEl.value;
 
@@ -187,6 +256,19 @@ onMounted(() => {
 
   getLocalFavoriteColors();
   getDominantFavoriteColors();
+  getLocalCustomColors();
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key == 'Control') {
+      isCtrlDown.value = true;
+    }
+  });
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key == 'Control') {
+      isCtrlDown.value = false;
+    }
+  });
 });
 </script>
 
@@ -211,7 +293,7 @@ onMounted(() => {
 .image-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   row-gap: 15px;
@@ -222,8 +304,16 @@ onMounted(() => {
   margin: 0 auto;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  height: 32px;
+}
+
 .name {
-  width: 100%;
+  width: 150px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -234,12 +324,13 @@ onMounted(() => {
 }
 
 .name:hover {
-  scale: 1.2;
+  scale: 1.1;
 }
 
 .palette {
   display: grid;
   grid-template-columns: repeat(3, 32px);
+  grid-template-rows: repeat(auto-fill, 32px);
   gap: 5px;
 }
 
@@ -283,5 +374,27 @@ onMounted(() => {
 .tooltip-wrapper {
   position: fixed;
   z-index: 1;
+}
+</style>
+
+<style>
+/* .color-input.user .picker-popup {
+  position: fixed;
+  transform: scale(1);
+  top: 0 !important;
+  left: 0 !important;
+} */
+
+.color-input.user .box {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  transition: scale 0.3s ease;
+  border: 1px solid var(--bg-color-invert);
+}
+
+.color-input.user .box:hover {
+  scale: 1.2;
+  color: var(--text-color-accent);
 }
 </style>

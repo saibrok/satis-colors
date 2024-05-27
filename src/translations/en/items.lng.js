@@ -1,4 +1,7 @@
 export default {
+  // Custom Colors
+  'custom-colors': 'Custom Colors',
+
   // Ores
   limestone: 'Limestone',
   'iron-ore': 'Iron Ore',

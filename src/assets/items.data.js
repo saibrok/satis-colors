@@ -1,5 +1,14 @@
 export default [
   {
+    groupName: 'custom-colors',
+    items: [
+      {
+        name: 'custom-colors',
+        image: '/images/icon.png',
+      },
+    ],
+  },
+  {
     groupName: 'ores',
     items: [
       {

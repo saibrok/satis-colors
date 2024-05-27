@@ -1,4 +1,5 @@
 export default {
+  'custom-colors': 'Custom Colors',
   ores: 'Ores',
   ingots: 'Ingots',
   minerals: 'Minerals',

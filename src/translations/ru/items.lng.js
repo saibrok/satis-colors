@@ -1,4 +1,7 @@
 export default {
+  // Свои Цвета
+  'custom-colors': 'Свои Цвета',
+
   // Руды
   limestone: 'Известняк',
   'iron-ore': 'Железная руда',

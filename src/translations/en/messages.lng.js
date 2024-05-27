@@ -3,5 +3,6 @@ export default {
   exclude: 'Exclude',
   collapse: 'Collapse all',
   copied: 'Copied',
-  favorite: 'favorite',
+  favorite: 'Favorite',
+  remove: 'Remove',
 };

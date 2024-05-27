@@ -49,9 +49,17 @@
       <Theme />
     </div>
 
-    <button class="language-button" @click="onClick">lng: {{ language }}</button>
+    <button
+      class="language-button"
+      @click="onClick"
+    >
+      lng: {{ language }}
+    </button>
 
-    <div class="hint">ctrl + click => {{ $t('messages.favorite') }}</div>
+    <div>
+      <div class="hint">ctrl + click => {{ $t('messages.favorite') }}</div>
+      <div class="hint">ctrl + click => {{ $t('messages.remove') }}</div>
+    </div>
   </header>
 
   <main class="main">

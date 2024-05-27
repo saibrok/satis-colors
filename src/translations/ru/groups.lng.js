@@ -1,4 +1,5 @@
 export default {
+  'custom-colors': 'Свои цвета',
   ores: 'Руды',
   ingots: 'Слитки',
   minerals: 'Минералы',
