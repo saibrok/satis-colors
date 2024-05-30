@@ -114,6 +114,5 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   gap: 10px;
-  overflow: hidden;
 }
 </style>

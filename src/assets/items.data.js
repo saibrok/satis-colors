@@ -5,6 +5,7 @@ export default [
       {
         name: 'custom-colors',
         image: '/images/icon.png',
+        hidePalette: true,
       },
     ],
   },

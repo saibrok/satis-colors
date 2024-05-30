@@ -1,6 +1,9 @@
 <template>
   <div class="item">
-    <div class="content">
+    <div
+      v-show="!item.hidePalette"
+      class="content"
+    >
       <div class="image-wrapper">
         <img
           loading="lazy"
@@ -31,25 +34,28 @@
           <!-- {{ color }} -->
           <div v-if="favoriteColors.includes(index)">&#10004;</div>
         </div>
-        <div
-          v-for="(color, index) in customColors"
-          :key="color"
-          class="color"
-          :style="{
-            backgroundColor: color,
-            color: getContrast(color) ? 'black' : 'white',
-          }"
-          @click="onClickCustomColor($event, color, index)"
-        >
-          <!-- {{ color }} -->
-          <div v-if="isCtrlDown">
-            <img
-              class="trash-icon"
-              src="/icons/trash.svg"
-              alt="trash"
-              :style="{ filter: `invert(${getContrast(color) ? 1 : 0})` }"
-            />
-          </div>
+      </div>
+    </div>
+
+    <div v-if="customColors.length" class="palette custom-pallet">
+      <div
+        v-for="(color, index) in customColors"
+        :key="color"
+        class="color"
+        :style="{
+          backgroundColor: color,
+          color: getContrast(color) ? 'black' : 'white',
+        }"
+        @click="onClickCustomColor($event, color, index)"
+      >
+        <!-- {{ color }} -->
+        <div v-if="isCtrlDown">
+          <img
+            class="trash-icon"
+            src="/icons/trash.svg"
+            alt="trash"
+            :style="{ filter: `invert(${getContrast(color) ? 1 : 0})` }"
+          />
         </div>
       </div>
     </div>
@@ -65,7 +71,6 @@
       <ColorInput
         class="add-color"
         format="hex string"
-        position="top"
         disable-alpha
         v-model="newCustomColor"
         @pickEnd="addNewCustomColor"
@@ -276,18 +281,19 @@ onMounted(() => {
 .item {
   position: relative;
   background-color: var(--bg-color-neutral);
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   border-radius: 16px;
   font-size: var(--text-size-decreased);
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .content {
   display: grid;
   grid-template-columns: 64px 1fr;
   column-gap: 10px;
+  margin-bottom: 20px;
 }
 
 .image-wrapper {
@@ -308,7 +314,6 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
   height: 32px;
 }
 
@@ -317,7 +322,7 @@ onMounted(() => {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   transition: scale 0.3s ease;
   line-height: normal;
@@ -332,6 +337,11 @@ onMounted(() => {
   grid-template-columns: repeat(3, 32px);
   grid-template-rows: repeat(auto-fill, 32px);
   gap: 5px;
+}
+
+.custom-pallet {
+  margin-bottom: 10px;
+  grid-template-columns: repeat(5, 32px);
 }
 
 .dominant-color {
